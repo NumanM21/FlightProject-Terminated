@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class FlightsSearchComponent {
 
+  searchResults: any[] = [
+    "American Airlines(USA)",
+    "Delta Airlines(USA)",
+    "United Airlines(USA)",
+    "Emirates(UAE)",
+    "Lufthansa(GER)",
+    "British Airways(UK)", 
+  ]
+
+
+
+  constructor() {}
+
+  ngOnInit() {
+    this.searchResults
+  }
+
 }
