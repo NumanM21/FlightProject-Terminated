@@ -1,6 +1,8 @@
 <h5 class="text-md-center m-5">Search for Flights </h5>
 
 <div class="m-5 d-grid gap-3">
+
+  <!-- Destination (from/to) -->
   <div class="row">
     <div class="col">
       <div class="form-floating">
@@ -18,7 +20,50 @@
     </div>
   </div>
 
+  <!-- Dates -->
+
+<div class="row">
+  <div class="col">
+    <div class="form-floating">
+      <input type="date" placeholder="Date From" class="form-control"/>
+      <label class="text-primary form-label">Date From</label>
+    </div>
+  </div>
+  
+
+  <div class="col">
+    <div class="form-floating">
+      <input type="date" placeholder="Date To" class="form-control"/>
+      <label class="text-primary form-label">Date To</label>
+    </div>
+  </div>
 </div>
+
+<!-- Number of Passengers -->
+
+<div class="row">
+
+  <div class="col text-end" >
+    <label class="form-label text-primary mt-2">Number of Passengers</label>
+  </div>
+
+  <div class="col">
+    <div class="input-group">
+      <div class="input-group-text">For</div>
+      <input class="form-control" type="number" placeholder="1">
+      <div class="input-group-text">Passengers</div>
+
+<!-- Must have type submit to 'submit' the form tag  (when linking forms to backend!) -->
+      <button type="submit" class="btn-primary btn-primary">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+</div> 
+
 
 
 
