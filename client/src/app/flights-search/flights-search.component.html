@@ -6,7 +6,7 @@
   <div class="row">
     <div class="col">
       <div class="form-floating">
-        <input placeholder="Departure from" class="form-control"/>
+        <input placeholder="Departure from" class="form-control" />
         <label class="text-primary form-label">Departure From</label>
       </div>
     </div>
@@ -14,7 +14,7 @@
 
     <div class="col">
       <div class="form-floating">
-        <input placeholder="Destination" class="form-control"/>
+        <input placeholder="Destination" class="form-control" />
         <label class="text-primary form-label">Destination</label>
       </div>
     </div>
@@ -22,50 +22,133 @@
 
   <!-- Dates -->
 
-<div class="row">
-  <div class="col">
-    <div class="form-floating">
-      <input type="date" placeholder="Date From" class="form-control"/>
-      <label class="text-primary form-label">Date From</label>
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="Date From" class="form-control" />
+        <label class="text-primary form-label">Date From</label>
+      </div>
+    </div>
+
+
+    <div class="col">
+      <div class="form-floating">
+        <input type="date" placeholder="Date To" class="form-control" />
+        <label class="text-primary form-label">Date To</label>
+      </div>
     </div>
   </div>
-  
 
-  <div class="col">
-    <div class="form-floating">
-      <input type="date" placeholder="Date To" class="form-control"/>
-      <label class="text-primary form-label">Date To</label>
+  <!-- Number of Passengers -->
+
+  <div class="row">
+
+    <div class="col text-end">
+      <label class="form-label text-primary mt-2">Number of Passengers</label>
     </div>
+
+    <div class="col">
+      <div class="input-group">
+        <div class="input-group-text">For</div>
+        <input class="form-control" type="number" placeholder="1">
+        <div class="input-group-text">Passengers</div>
+
+        <!-- Must have type submit to 'submit' the form tag  (when linking forms to backend!) -->
+        <button type="submit" class="btn-primary btn-primary">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+
   </div>
 </div>
 
-<!-- Number of Passengers -->
 
-<div class="row">
 
-  <div class="col text-end" >
-    <label class="form-label text-primary mt-2">Number of Passengers</label>
-  </div>
 
-  <div class="col">
-    <div class="input-group">
-      <div class="input-group-text">For</div>
-      <input class="form-control" type="number" placeholder="1">
-      <div class="input-group-text">Passengers</div>
 
-<!-- Must have type submit to 'submit' the form tag  (when linking forms to backend!) -->
-      <button type="submit" class="btn-primary btn-primary">
-        <i class="fas fa-search"></i>
-      </button>
+
+
+<div *ngFor="let flight of searchResults">
+  <!-- Card is type of css styling -->
+  <div class="card text-dark mt-5 text-center">
+    <!-- Can have header, body, foot (3 sections in card) -->
+    <div class="card-body card-design">
+      <!-- Bind flight to template using {{}} -> then access specific airline property of each object  -->
+      <h6 class="card-title">{{flight.airline}}</h6>
+      <div class="card-title seats-remaining">{{flight.numberOfSeatsAvailable}} seats remaining</div>
+
+      <!-- Create a grid div -->
+      <div class="d-grid text-center g-2">
+        <div class="row">
+          <div class="col">
+            <!-- Split the grid into row, then col, then break the col into 4 futher col -->
+
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-departure depareture-icon"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot">
+                <span class="text-padding">{{flight.departure.place}}</span>
+              </i>
+            </div>
+
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{flight.departure.time | date}}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{flight.departure.time | date:'shortTime'}}
+            </div>
+
+          </div>
+          <!-- CSS for plane icon + Book button -->
+          <div class="col">
+            <div style="display:flex;">
+              <i class="fa-solid fa-circle flight-icon"></i>
+              <hr class="thin-line-hr" />
+              <i class="fas fa-plane plane-icon"></i>
+            </div>
+            <!-- TODO: Change colour of book button  -->
+            <i class="fas fa-pound-sign">{{flight.price}}</i>
+            <br />
+            <button class="btn btn-secondary btn-lg mt-2">
+              <i class="fas fa-ticket"></i>
+              Book Now
+            </button>
+          </div>
+          <!-- Arrival -->
+
+          <div class="col">
+
+            <div class="col m-3">
+              <i class="text-primary fas fa-plane-arrival depareture-icon"></i>
+            </div>
+
+            <div class="col">
+              <i class="fa-solid fa-location-dot">
+                <span class="text-padding">{{flight.arrival.place}}</span>
+              </i>
+            </div>
+
+
+            <div class="col m-2">
+              <i class="fa-regular"></i>
+              {{flight.arrival.time | date}}
+            </div>
+
+            <div class="col">
+              <i class="fa-regular fa-clock"></i>
+              {{flight.arrival.time | date:'shortTime'}}
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
 </div>
-
-</div> 
-
-
-
-
-
-<div *ngFor="let flight of searchResults">{{flight}}</div>
