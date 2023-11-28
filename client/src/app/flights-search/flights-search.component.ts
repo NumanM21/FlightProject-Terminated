@@ -11,7 +11,7 @@ export class FlightsSearchComponent implements OnInit {
     {
       airline: "American Airlines(USA)",
       departure: {time:Date.now().toString(), place: "New York"},
-      arrival: {time:Date.now().toString(), place: "Karachi"},
+      arrival: {time:Date.now().toString(), place: "Toronto"},
       price: "1000",
       numberOfSeatsAvailable: 280
     },
